@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "light2D", "light2D\light2D.vcxproj", "{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Debug|x64.ActiveCfg = Debug|x64
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Debug|x64.Build.0 = Debug|x64
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Debug|x86.Build.0 = Debug|Win32
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Release|x64.ActiveCfg = Release|x64
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Release|x64.Build.0 = Release|x64
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Release|x86.ActiveCfg = Release|Win32
+		{4F521F42-1AB5-4BF7-B67E-667ABBFD6B0E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C3A02F7-A8F7-4A6B-9D75-4FCAD1EFB3A3}
+	EndGlobalSection
+EndGlobal
