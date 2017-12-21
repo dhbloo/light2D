@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\shapes">
+      <UniqueIdentifier>{afed3e22-253d-41e2-addc-306314cd1f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
@@ -21,14 +24,32 @@
     <ClInclude Include="color.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="math.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="shapes.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="scene.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeBox.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCapsule.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCircle.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapePlane.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeSegment.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeTriangle.h">
+      <Filter>头文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeOperator.h">
+      <Filter>头文件\shapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -36,9 +57,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="shapes.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="scene.cpp">

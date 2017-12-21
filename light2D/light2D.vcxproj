@@ -96,6 +96,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OpenMPSupport>true</OpenMPSupport>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -117,15 +118,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="color.h" />
-    <ClInclude Include="math.h" />
-    <ClInclude Include="shapes.h" />
+    <ClInclude Include="shape.h" />
+    <ClInclude Include="ShapeBox.h" />
+    <ClInclude Include="ShapeCapsule.h" />
+    <ClInclude Include="ShapeCircle.h" />
     <ClInclude Include="scene.h" />
+    <ClInclude Include="ShapeOperator.h" />
+    <ClInclude Include="ShapePlane.h" />
+    <ClInclude Include="ShapeSegment.h" />
+    <ClInclude Include="ShapeTriangle.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scene.cpp" />
-    <ClCompile Include="shapes.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

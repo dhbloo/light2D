@@ -3,9 +3,14 @@
 #ifndef _COLOR_H_
 #define _COLOR_H_
 
-#include "math.h"
+#define ZERO_EPS 1e-6f
 
 class Color {
+private:
+	template <class T1, class T2 = T1, class T3 = T1>
+	inline auto clamp(const T1 x, const T2 minValue = 0, const T3 maxValue = 1) const {
+		return (x < minValue) ? minValue : ((x > maxValue) ? maxValue : x);
+	}
 public:
 	float r, g, b;
 
@@ -13,14 +18,14 @@ public:
 	Color(float r, float g, float b) : r(r), g(g), b(b) {}
 	~Color() {}
 
-	float operator[](UInt8 i) { return (&r)[i]; }
+	float operator[](unsigned char i) { return (&r)[i]; }
 
 	inline bool operator ==(const Color & color) {
 		return color.r == r && color.g == g && color.b == b;
 	}
 
 	inline bool isBlack() {
-		return r <= Maths::ZERO_EPS && g <= Maths::ZERO_EPS && b <= Maths::ZERO_EPS;
+		return r <= ZERO_EPS && g <= ZERO_EPS && b <= ZERO_EPS;
 	}
 
 	inline Color operator - () const {
@@ -82,9 +87,9 @@ public:
 	}
 
 	inline Color & clamp() {
-		r = Maths::clamp(r);
-		g = Maths::clamp(g);
-		b = Maths::clamp(b);
+		r = clamp(r);
+		g = clamp(g);
+		b = clamp(b);
 		return *this;
 	}
 
@@ -114,9 +119,9 @@ public:
 		int ir = int(r * 255 + 0.5);
 		int ig = int(g * 255 + 0.5);
 		int ib = int(b * 255 + 0.5);
-		ir = Maths::clamp(ir, 0, 255);
-		ig = Maths::clamp(ig, 0, 255);
-		ib = Maths::clamp(ib, 0, 255);
+		ir = clamp(ir, 0, 255);
+		ig = clamp(ig, 0, 255);
+		ib = clamp(ib, 0, 255);
 		return (ir << 16) | (ig << 8) | ib;
 	}
 

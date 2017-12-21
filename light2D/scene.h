@@ -1,29 +1,40 @@
 #pragma once
 
-#include "color.h"
+#include <list>
+#include <memory>
+#include "shape.h"
 
-struct Result { float sd; Color emissive; Color reflectivity; Color eta; };
+using std::list;
+using std::shared_ptr;
 
-namespace Scene {
-	static int MaxDepth = 4;
-	static int MaxStep = 128;
-	static float MaxDistance = 2.0f;
-	static float Epslion = 1e-6f;
-	static float Bias = 1e-4f;
-	static int N = 256;
+class Scene {
+private:
+	const float Epslion = 1e-6f;
+	const float Bias = 1e-4f;
+	int maxDepth = 3;
+	int maxStep = 64;
+	float maxDistance = 5.0f;
+	int N = 32;
 
-	inline Result unionOp(Result a, Result b) { return a.sd < b.sd ? a : b; }
-	inline Result complementOp(Result a) { return a.sd = -a.sd, a; }
-	Result intersectOp(Result a, Result b);
-	Result subtractOp(Result a, Result b);
-	inline Result roundOp(Result a, float r) { return a.sd -= r, a; }
-	
-	Result scene(float x, float y);
+	list<shared_ptr<Shape>> shapes;
 
-	void gradient(float x, float y, float & nx, float & ny);
-	void reflect(float ix, float iy, float nx, float ny, float & rx, float & ry);
-	bool refract(float ix, float iy, float nx, float ny, float eta, float & rx, float & ry);
-	Color trace(float ox, float oy, float dx, float dy, int depth);
-	Color sample(float x, float y);
-}
+	void reflect(float ix, float iy, float nx, float ny, float & rx, float & ry) const;
+	bool refract(float ix, float iy, float nx, float ny, float eta, float & rx, float & ry) const;
+	float fresnel(float cosi, float cost, float etai, float etat) const;
+	float schlick(float cosi, float cost, float etai, float etat) const;
+	void gradient(float x, float y, float & nx, float & ny) const;
 
+public:
+	Scene() {}
+	~Scene() {}
+
+	void clear() { shapes.clear(); }
+
+	Scene & operator+= (shared_ptr<Shape> shape) { shapes.push_back(shape); return *this; }
+
+	Result intersect(float x, float y) const;
+	float sdf(float x, float y) const;
+
+	Color trace(float ox, float oy, float dx, float dy, int depth) const;
+	Color sample(float x, float y) const;
+};
