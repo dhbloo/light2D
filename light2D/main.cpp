@@ -20,7 +20,8 @@ void createScene(Scene & scene) {
 
 void createScene(Scene & scene) {
 	scene += make_shared<ShapeCircle>(-.25f, -.25f, 0.3f)->setEmissive(4.f * Colors::White);
-	scene += make_shared<ShapeBox>(0.5f, 0.5f, 0.25f, 0.16f)->setEta(Color(1.5f, 2.f, 3.f));
+	scene += make_shared<ShapeTriangle>(0.4f, 0.5f, 0.65f, 0.16f, 0.7f, 0.7f)->setEta(Color(1.5f, 2.f, 3.f));
+	//scene += make_shared<ShapeBox>(0.5f, 0.5f, 0.25f, 0.16f)->setEta(Color(1.5f, 2.f, 3.f));
 }
 
 int main() {

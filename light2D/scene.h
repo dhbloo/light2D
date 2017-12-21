@@ -14,7 +14,7 @@ private:
 	int maxDepth = 3;
 	int maxStep = 64;
 	float maxDistance = 5.0f;
-	int N = 32;
+	int N = 256;
 
 	list<shared_ptr<Shape>> shapes;
 
