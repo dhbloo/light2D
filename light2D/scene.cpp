@@ -32,6 +32,10 @@ float Scene::schlick(float cosi, float cost, float etai, float etat) const {
 	return r0 + (1.0f - r0) * aa * aa * a;
 }
 
+Color Scene::beerLambert(Color a, float d) const {
+	return Color(expf(-a.r * d), expf(-a.g * d), expf(-a.b * d));
+}
+
 void Scene::gradient(float x, float y, float & nx, float & ny) const {
 	nx = (sdf(x + Epslion, y) - sdf(x - Epslion, y)) * (0.5f / Epslion);
 	ny = (sdf(x, y + Epslion) - sdf(x, y - Epslion)) * (0.5f / Epslion);
@@ -116,7 +120,7 @@ Color Scene::trace(float ox, float oy, float dx, float dy, int depth) const {
 			}
 
 		}
-		return sum;
+		return sum * beerLambert(r.absorption, t);
 	}
 	return Colors::Black;
 }

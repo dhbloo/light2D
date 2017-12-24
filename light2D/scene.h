@@ -14,7 +14,7 @@ private:
 	int maxDepth = 3;
 	int maxStep = 64;
 	float maxDistance = 5.0f;
-	int N = 256;
+	int N = 16;
 
 	list<shared_ptr<Shape>> shapes;
 
@@ -22,6 +22,7 @@ private:
 	bool refract(float ix, float iy, float nx, float ny, float eta, float & rx, float & ry) const;
 	float fresnel(float cosi, float cost, float etai, float etat) const;
 	float schlick(float cosi, float cost, float etai, float etat) const;
+	Color beerLambert(Color a, float d) const;
 	void gradient(float x, float y, float & nx, float & ny) const;
 
 public:
